@@ -1,0 +1,2 @@
+class Mtg < Issue
+end

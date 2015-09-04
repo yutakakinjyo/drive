@@ -1,0 +1,2 @@
+class EventPlan < Issue
+end

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  owner: 1
+  date: 2015-09-04
+  place: MyString
+  type: 
+
+two:
+  title: MyString
+  owner: 1
+  date: 2015-09-04
+  place: MyString
+  type: 
