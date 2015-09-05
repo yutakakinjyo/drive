@@ -6,11 +6,6 @@ class TaskTest < ActiveSupport::TestCase
     @task = Task.create(content: "reserve place") 
   end
 
-  test "create task" do
-    refute_nil @task
-    assert_equal "reserve place", @task.content
-  end
-
   test "assign member" do
     @task.assign_member(Member.create(name: "yutaka"))
     refute_nil @task.assigned_member
