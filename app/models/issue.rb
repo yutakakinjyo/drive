@@ -1,5 +1,5 @@
 class Issue < ActiveRecord::Base
-  has_many :comment
+  has_many :comments
   belongs_to :owner, class_name: 'Member'
 
   def post(content, member_id)

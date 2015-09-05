@@ -1,4 +1,4 @@
 class Like < ActiveRecord::Base
-  has_many :comment
-  has_many :member
+  belongs_to :comment
+  belongs_to :member
 end
