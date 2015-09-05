@@ -4,7 +4,7 @@ class Comment < ActiveRecord::Base
   has_many :likes
 
   def liked(member)
-    Like.create(comment_id: self.id, member_id: member.id)
+    Like.create(comment: self, member: member)
   end
 
 end
