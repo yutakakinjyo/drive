@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150904155203) do
+ActiveRecord::Schema.define(version: 20150905050933) do
 
   create_table "comments", force: :cascade do |t|
     t.integer  "issue_id"
@@ -27,6 +27,13 @@ ActiveRecord::Schema.define(version: 20150904155203) do
     t.date     "date"
     t.string   "place"
     t.string   "type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "joins", force: :cascade do |t|
+    t.integer  "mtg_id"
+    t.integer  "member_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
