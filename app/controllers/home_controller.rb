@@ -1,5 +1,8 @@
 class HomeController < ApplicationController
+
   def index
-    @word = "welcom home"
+    @issues = Issue.all
+    @new_issue = Issue.new
   end
+
 end

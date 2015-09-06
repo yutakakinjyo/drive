@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
-  get 'issues/index'
 
-  get 'issues/create'
-
-  get 'issues/edit'
+  resources :issues, only: [:create, :new]
 
   root to: 'home#index'
 

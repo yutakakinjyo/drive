@@ -7,6 +7,16 @@
   <%= link_to 'login by Facebook', '/auth/facebook' %>
 <% end %>
 
+<%= form_for(@new_issue) do |f| %>
+  <%= f.label :title %><br>
+  <%= f.text_field :title %><br>
+  <%= f.submit %>
+<% end %>
+
+<% @issues.each do |issue| %>
+  <%= issue.title %><br>
+<% end %>
+
 
 
 
