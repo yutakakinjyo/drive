@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root to: 'home#index'
 
   get '/auth/facebook/callback' => 'sessions#create'
-  # get '/signout' => 'sessions#destroy'
+  get '/logout' => 'sessions#destroy', as: :logout
   # get '/signin' => 'sessions#new'
 
 
