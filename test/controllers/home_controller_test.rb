@@ -1,6 +1,11 @@
 require 'test_helper'
 
 class HomeControllerTest < ActionController::TestCase
+
+  def setup
+   session[:member_id] = Member.create(name: "yutaka").id
+  end
+
   test "should get index" do
     get :index
     assert_response :success
