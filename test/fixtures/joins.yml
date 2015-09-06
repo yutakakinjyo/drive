@@ -1,9 +1,1 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  mtg_id: 1
-  member_id: 1
-
-two:
-  mtg_id: 1
-  member_id: 1

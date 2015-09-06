@@ -1,11 +1,1 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  event_plan_id: 1
-  content: MyString
-  assigned_member: 1
-
-two:
-  event_plan_id: 1
-  content: MyString
-  assigned_member: 1
