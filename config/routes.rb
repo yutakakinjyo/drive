@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'issues/index'
+
+  get 'issues/create'
+
+  get 'issues/edit'
+
   root to: 'home#index'
 
   get '/auth/facebook/callback' => 'sessions#create'
