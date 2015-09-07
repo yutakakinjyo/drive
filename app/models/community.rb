@@ -1,5 +1,7 @@
 class Community < ActiveRecord::Base
 
+  validates :name, presence: true
+
   def joined(member)
     member.state = :joined
   end
