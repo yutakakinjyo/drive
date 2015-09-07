@@ -25,4 +25,26 @@ class MemberTest < ActiveSupport::TestCase
     assert_equal plan.owner, @member
   end  
 
+  test "create member account" do
+
+    auth_hash =  { provider: 'facebook', uid: '12345', info: { name: "user" } }    
+
+    member = Member.find_or_create_from_auth_hash(auth_hash)
+    
+    assert_equal 'facebook', member.provider
+    assert_equal '12345', member.uid
+    assert_equal 'user', member.name
+  end
+
+  test "find already exist member account" do
+
+    member = Member.create( provider: 'facebook', uid: '12345', name: "user" )
+
+    auth_hash =  { provider: 'facebook', uid: '12345', info: { name: "user" } }    
+    find_member = Member.find_or_create_from_auth_hash(auth_hash)
+    
+    assert_equal member, find_member
+
+  end
+
 end
