@@ -3,7 +3,7 @@ require 'test_helper'
 class EventPlanTest < ActiveSupport::TestCase
 
   def setup
-    @plan = EventPlan.create
+    @plan = EventPlan.create(title: "example conference")
   end
 
   test "set task" do

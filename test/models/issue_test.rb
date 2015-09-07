@@ -1,7 +1,9 @@
 require 'test_helper'
 
 class IssueTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+
+  test "valid error title" do
+    refute Issue.create.valid?
+ end
+
 end
