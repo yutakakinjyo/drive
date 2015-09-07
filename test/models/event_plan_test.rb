@@ -3,13 +3,13 @@ require 'test_helper'
 class EventPlanTest < ActiveSupport::TestCase
 
   def setup
-    @plan = EventPlan.create(title: "example conference")
+    @plan = EventPlan.create(title: "example conference", owner: Member.create)
   end
 
   test "set task" do
    @plan.set_task("reserve place")
     
-    refute_nil Task.first
+    assert_not_nil Task.first
     assert_equal "reserve place", @plan.tasks.first.content
   end
 

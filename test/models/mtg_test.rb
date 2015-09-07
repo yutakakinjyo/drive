@@ -3,7 +3,7 @@ require 'test_helper'
 class MtgTest < ActiveSupport::TestCase
 
   def setup
-    @mtg = Mtg.create(title: "start meeting")
+    @mtg = Mtg.create(title: "start meeting", owner: Member.create)
     @member1 = Member.create
     @member2 = Member.create
   end
