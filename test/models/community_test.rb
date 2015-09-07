@@ -15,14 +15,4 @@ class CommunityTest < ActiveSupport::TestCase
     assert Community.create(name: "example community").valid?
   end
 
-  test "joined" do
-    @community.joined(@member)
-    assert @member.joined?
-  end
-
-  test "leaved" do
-    @community.leaved(@member)
-    assert @member.leaved?
-  end
-
 end

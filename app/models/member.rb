@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 class Member < ActiveRecord::Base
 
-  enum state: [:joined, :leaved]
-
   def join(community)
     member_list = MemberList.find_or_create_by(member: self, community: community)
     member_list.state = :joined
