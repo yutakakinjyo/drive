@@ -3,6 +3,18 @@ class Member < ActiveRecord::Base
 
   enum state: [:joined, :leaved]
 
+  def join(community)
+    member_list = MemberList.find_or_create_by(member: self, community: community)
+    member_list.state = :joined
+    member_list.save
+  end
+
+  def leave(community)
+    member_list = MemberList.find_by(member: self, community: community)
+    member_list.state = :leaved
+    member_list.save
+  end
+
   def open_mtg(title, comment)
     mtg = Mtg.create(title: title, owner: self)
     mtg.post(comment, self)
