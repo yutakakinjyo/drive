@@ -27,25 +27,8 @@ ActiveRecord::Schema.define(version: 20150907083638) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "issues", force: :cascade do |t|
-    t.string   "title"
-    t.integer  "owner_id"
-    t.date     "date"
-    t.string   "place"
-    t.string   "type"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "joins", force: :cascade do |t|
     t.integer  "mtg_id"
-    t.integer  "member_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "likes", force: :cascade do |t|
-    t.integer  "comment_id"
     t.integer  "member_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -73,14 +56,6 @@ ActiveRecord::Schema.define(version: 20150907083638) do
     t.string   "name"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
-  end
-
-  create_table "tasks", force: :cascade do |t|
-    t.integer  "event_plan_id"
-    t.string   "content"
-    t.integer  "assigned_member_id"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
   end
 
 end
