@@ -1,9 +1,9 @@
 class Comment < ActiveRecord::Base
-  belongs_to :issue
+  belongs_to :event
   belongs_to :member
   has_many :likes
 
-  validates :issue, presence: true
+  validates :event, presence: true
   validates :member, presence: true
 
   def liked(member)

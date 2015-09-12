@@ -11,10 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150907083638) do
+ActiveRecord::Schema.define(version: 20150912005838) do
 
   create_table "comments", force: :cascade do |t|
-    t.integer  "issue_id"
+    t.integer  "event_id"
     t.string   "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -25,6 +25,14 @@ ActiveRecord::Schema.define(version: 20150907083638) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.integer  "owner_id"
+    t.integer  "conference_id"
+    t.string   "type"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "joins", force: :cascade do |t|
@@ -56,6 +64,18 @@ ActiveRecord::Schema.define(version: 20150907083638) do
     t.string   "name"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+  end
+
+  create_table "subjects", force: :cascade do |t|
+    t.string   "title"
+    t.string   "content"
+    t.integer  "state"
+    t.integer  "event_id"
+    t.integer  "owner_id"
+    t.integer  "assign_member_id"
+    t.integer  "prev_state_subject_id"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
 end

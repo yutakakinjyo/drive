@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :issues, only: [:create, :new]
+  # resources only: [:create, :new]
 
   root to: 'home#index'
 
