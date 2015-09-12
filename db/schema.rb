@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20150912005838) do
   end
 
   create_table "events", force: :cascade do |t|
+    t.integer  "community_id"
     t.integer  "owner_id"
     t.integer  "conference_id"
     t.string   "type"

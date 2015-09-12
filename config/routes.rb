@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get '/home/front' => 'home#front'
 
   get '/community/:id' => 'community#show', as: 'community'
+
+  get '/events/:id' => 'events#show', as: 'event'
   
 
   # The priority is based upon order of creation: first created -> highest priority.

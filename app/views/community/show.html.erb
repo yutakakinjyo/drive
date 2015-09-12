@@ -1,4 +1,9 @@
-<h1>Community#show</h1>
-<p>Find me in app/views/community/show.html.erb</p>
+<h1><%= @community.name %></h1><br>
+<h2> Events </h2><br>
 
-<%= @community.name %>
+<% @community.events.each do |event| %>
+  <% title_subject = event.subjects.first %>
+  <%= link_to title_subject.content, event %> <br>
+<% end %>
+
+
