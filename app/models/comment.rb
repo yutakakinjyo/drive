@@ -6,8 +6,4 @@ class Comment < ActiveRecord::Base
   validates :event, presence: true
   validates :member, presence: true
 
-  def liked(member)
-    Like.create(comment: self, member: member)
-  end
-
 end
