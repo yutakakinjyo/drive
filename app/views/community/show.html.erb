@@ -1,9 +1,9 @@
-<h1><%= @community.name %></h1><br>
-<h2> Events </h2><br>
+<h1><%= @community.name %></h1>
+<h2> Events </h2>
 
 <% @community.events.each do |event| %>
   <% title_subject = event.subjects.first %>
-  <%= link_to title_subject.content, event %> <br>
+  <%= link_to title_subject.content, event_path(event) %> <br>
 <% end %>
 
 

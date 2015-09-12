@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'events/show'
+
   root to: 'home#index'
 
   get '/auth/facebook/callback' => 'sessions#create'
