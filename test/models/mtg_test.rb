@@ -3,7 +3,7 @@ require 'test_helper'
 class MtgTest < ActiveSupport::TestCase
 
   def setup
-    @mtg = Mtg.create(title: "start meeting", owner: Member.create)
+    @mtg = Event.mtg_planed(title: "start meeting", owner: Member.create)
     @member1 = Member.create
     @member2 = Member.create
   end
@@ -15,4 +15,6 @@ class MtgTest < ActiveSupport::TestCase
     assert_equal @member1, @mtg.members.first
     assert_equal @member2, @mtg.members.second
   end
+
+
 end

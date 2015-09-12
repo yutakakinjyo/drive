@@ -13,16 +13,6 @@ class Member < ActiveRecord::Base
     member_list.save
   end
 
-  def open_mtg(title, comment)
-    mtg = Mtg.create(title: title, owner: self)
-    mtg.post(comment, self)
-  end
-
-  def plan_event(title, comment)
-    plan = EventPlan.create(title: title, owner: self)
-    plan.post(comment, self)
-  end
-
   def self.find_or_create_from_auth_hash(auth_hash)
     provider = auth_hash[:provider]
     uid = auth_hash[:uid]

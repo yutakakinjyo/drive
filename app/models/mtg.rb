@@ -1,4 +1,4 @@
-class Mtg < Issue
+class Mtg < Event
 
   has_many :joins
   has_many :members, through: :joins
@@ -6,4 +6,5 @@ class Mtg < Issue
   def joined(member)
     Join.create(member: member, mtg: self)
   end
+
 end
