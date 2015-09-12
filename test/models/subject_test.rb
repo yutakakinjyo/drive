@@ -25,5 +25,31 @@ class SubjectTest < ActiveSupport::TestCase
     assert_equal nil,             @subject.prev_state_subject.prev_state_subject.content
   end
 
+  test "display diff statement" do
+
+    @subject.progress_update({content: "MTG"})
+    @subject.progress_update({content: "オフラインMTG"})
+
+    assert_equal "MTG",           @subject.param_diff[:content][:prev]
+    assert_equal "オフラインMTG", @subject.param_diff[:content][:current]
+
+  end
+
+  test "display many diff statement" do
+
+    @subject.progress_update({content: "MTG"})
+    @subject.progress_update({content: "オフラインMTG"})
+    @subject.progress_update({content: "オフラインMTG NEO", state: :UNDECIDED})
+
+    assert_equal "MTG",           @subject.prev_state_subject.param_diff[:content][:prev]
+    assert_equal "オフラインMTG", @subject.prev_state_subject.param_diff[:content][:current]
+    assert_equal nil,             @subject.prev_state_subject.param_diff[:state]
+
+    assert_equal "オフラインMTG",      @subject.param_diff[:content][:prev]
+    assert_equal "オフラインMTG NEO",  @subject.param_diff[:content][:current]
+    assert_equal "UNDECIDED",          @subject.param_diff[:state][:current]
+
+  end
+
 
 end
