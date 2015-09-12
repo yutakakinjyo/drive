@@ -2,11 +2,13 @@ Rails.application.routes.draw do
 
   root to: 'home#index'
 
-  get '/home/front' => 'home#front'
-
   get '/auth/facebook/callback' => 'sessions#create'
   get '/logout' => 'sessions#destroy', as: :logout
 
+  get '/home/front' => 'home#front'
+
+  get '/community/:id' => 'community#show', as: 'community'
+  
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

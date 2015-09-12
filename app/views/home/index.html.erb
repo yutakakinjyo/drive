@@ -2,6 +2,11 @@
 
 <%= link_to 'logout', logout_path %>
 
+<br>
+
+<% @communities.each do |community| %>
+  <%= link_to community.name, community %>
+<% end %>
 
 
 
