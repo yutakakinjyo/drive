@@ -51,6 +51,9 @@ group :development, :test do
 
   gem 'pry-rails'
 
+  gem 'hirb'
+  gem 'hirb-unicode'
+
 end
 
 
