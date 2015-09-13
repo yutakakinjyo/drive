@@ -1,0 +1,9 @@
+<%= form_for @event, url: {controller: "events", action: "create"} do |f| %>
+  <%= f.hidden_field :community_id, value: @community.id %>
+  <%= f.fields_for :subjects do |s_f| %>
+    <%= s_f.label 'タイトル' %>
+    <%= s_f.hidden_field :title, vaule: 'タイトル' %>
+    <%= s_f.text_field :content  %>
+  <% end %>
+  <%= f.submit "打ち合わせの提案を作成" %>
+<% end %>
