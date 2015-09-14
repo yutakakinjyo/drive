@@ -1,13 +1,21 @@
 Rails.application.routes.draw do
 
-  # resources only: [:create, :new]
+  get 'events/show'
 
   root to: 'home#index'
 
   get '/auth/facebook/callback' => 'sessions#create'
   get '/logout' => 'sessions#destroy', as: :logout
-  # get '/signin' => 'sessions#new'
 
+  get '/home/front' => 'home#front'
+
+  get '/community/:id' => 'community#show', as: 'community'
+
+  get '/events/:id' => 'events#show', as: 'event'
+  
+  get '/events/mtg/new' => 'events#new_mtg'
+  post '/events/' => 'events#create'
+  
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

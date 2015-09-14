@@ -7,6 +7,9 @@ class Subject < ActiveRecord::Base
 
   enum state: [:UNDECIDED, :READY, :DECIDED]
 
+  validates :title, presence: true
+  validates :content, presence: true
+
   def progress_update(params)
     prev = self.copy_create
     self.prev_state_subject = prev

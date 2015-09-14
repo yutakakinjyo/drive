@@ -1,24 +1,11 @@
 <h1>Home#index</h1>
 
-<% if logged_in? %>
-  <%= link_to 'logout', logout_path %>
-  <%= current_member.name %>
-<% else %>
-  <%= link_to 'login by Facebook', '/auth/facebook' %>
-<% end %>
 
-<%= form_for(@new_issue) do |f| %>
-  <%= f.label :title %><br>
-  <%= f.text_field :title %><br>
-  <%= f.hidden_field :owner_id, :value => current_member.id %>
-  <%= f.submit %>
-<% end %>
 
-<p>Issues</p>
+<br>
 
-<% @issues.each do |issue| %>
-    <%= issue.title %><br>
-
+<% @communities.each do |community| %>
+  <%= link_to community.name, community %>
 <% end %>
 
 

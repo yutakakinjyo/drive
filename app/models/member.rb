@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 class Member < ActiveRecord::Base
 
+  has_many :member_lists
+  has_many :communities, through: :member_lists
+
   def join(community)
     member_list = MemberList.find_or_create_by(member: self, community: community)
     member_list.state = :joined
