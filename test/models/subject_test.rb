@@ -4,7 +4,7 @@ require 'test_helper'
 class SubjectTest < ActiveSupport::TestCase
 
   def setup
-    @mtg = Event.mtg_planed(title: "タイトル")
+    @mtg = Event.mtg_planed(title: "タイトル", content: "no idea")
     @subject = @mtg.subjects.first
   end
 
@@ -12,7 +12,7 @@ class SubjectTest < ActiveSupport::TestCase
     @subject.progress_update({content: "MTG"})
 
     assert_equal "MTG", @subject.content
-    assert_equal nil, @subject.prev_state_subject.content
+    assert_equal "no idea", @subject.prev_state_subject.content
   end
 
   test "many progress update" do
@@ -22,7 +22,7 @@ class SubjectTest < ActiveSupport::TestCase
 
     assert_equal "オフラインMTG", @subject.content
     assert_equal "MTG",           @subject.prev_state_subject.content
-    assert_equal nil,             @subject.prev_state_subject.prev_state_subject.content
+    assert_equal "no idea",             @subject.prev_state_subject.prev_state_subject.content
   end
 
   test "display diff statement" do
