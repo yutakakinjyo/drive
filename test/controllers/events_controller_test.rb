@@ -19,10 +19,17 @@ class EventsControllerTest < ActionController::TestCase
   test "should redirect to event page" do
     post :create, mtg: { community_id: @community.id,  subjects_attributes: { "0" => {title: "title", content: "hoge"} } }
 
-    assert_equal 'title', assigns(:mtg).subjects.first.title
-    assert_equal 'hoge',  assigns(:mtg).subjects.first.content
-    assert_redirected_to event_path(assigns(:mtg))
+    assert_equal 'title', assigns(:event).subjects.first.title
+    assert_equal 'hoge',  assigns(:event).subjects.first.content
+    assert_redirected_to event_path(assigns(:event))
+  end
 
+  test "should render mtg new page" do
+    post :create, mtg: { community_id: @community.id,  subjects_attributes: { "0" => {title: nil, content: "hoge"} } }
+
+    assert_equal nil, assigns(:event).subjects.first.title
+    assert_equal 'hoge',  assigns(:event).subjects.first.content
+    # assert_redirected_to events_mtg_new_path
   end
 
 

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class EventsController < ApplicationController
 
   def show
@@ -6,15 +7,16 @@ class EventsController < ApplicationController
 
   def new_mtg
     @event = Mtg.new
-    @event.subjects.build
+    @event.subjects.build(title: "タイトル")
     @community = Community.find(params[:community_id])
   end
 
   def create
-    @mtg = Mtg.new(mtg_params)
-    if @mtg.save
-      redirect_to event_path(@mtg)
+    @event = Mtg.new(mtg_params)    
+    if @event.save
+      redirect_to event_path(@event)
     else
+      @community = Community.find(params[:mtg][:community_id])
       render action: 'new_mtg'
     end
   end
