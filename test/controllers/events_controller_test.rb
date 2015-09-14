@@ -5,12 +5,14 @@ class EventsControllerTest < ActionController::TestCase
 
   def setup
     session[:member_id] = Member.create
-    c = Community.create(name: "Java Kueche")
-    @e = Event.mtg_planed(title: "タイトル", content: "MTG", community: c)
+    community = Community.create(name: "Java Kueche")
+    @event = Event.mtg_planed(title: "タイトル", content: "MTG", community: community)
   end
 
   test "should get show" do
-    get :show, id: @e.id
+    get :show, id: @event.id
+    assert_equal @event.id, assigns(:event).id
+    assert_not_nil @event.subjects.first
     assert_response :success
   end
 
